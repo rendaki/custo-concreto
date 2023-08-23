@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  isLogged: boolean = false;
+  appTitle: string = 'Custo Concreto';
+
+ login($event: MouseEvent) {
+  this.isLogged = !this.isLogged;
+}
 
 }

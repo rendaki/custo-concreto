@@ -1,1 +1,33 @@
-<p>header works!</p>
+<div class="my-header">
+  <div class="my-title-line">
+    <div>
+      <img class="my-logo-cost" src="assets/resources/images/cost.png" />
+    </div>
+    <div>{{this.appTitle}}</div>
+    <div>
+      <img
+        class="my-logo-concrete"
+        src="assets/resources/images/concrete.png"
+      />
+    </div>
+  </div>
+
+  <div [hidden]="!isLogged">
+    <nav class="nav-wrapper">
+      <ul>
+        <li><a href="#">Cadastrar Obra</a></li>
+        <li><a href="#">Cadastrar Fornecedor</a></li>
+        <li><a href="#">Aquisições</a></li>
+        <li><a href="#">Serviços</a></li>
+        <li><a href="#">Relatórios</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<div [hidden]="isLogged" >
+  <div class="lnk-show"><a href="#" (click)="this.login($event)">Mostrar Menu</a></div>
+
+</div>
+<div [hidden]="!isLogged">
+  <div class="lnk-show"><a href="#" (click)="this.login($event)">Esconder Menu</a></div>
+</div>
