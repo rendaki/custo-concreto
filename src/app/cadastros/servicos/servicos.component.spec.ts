@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SideBarComponent } from './side-bar.component';
+import { ServicosComponent } from './servicos.component';
 
-describe('SideBarComponent', () => {
-  let component: SideBarComponent;
-  let fixture: ComponentFixture<SideBarComponent>;
+describe('ServicosComponent', () => {
+  let component: ServicosComponent;
+  let fixture: ComponentFixture<ServicosComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SideBarComponent]
+      declarations: [ServicosComponent]
     });
-    fixture = TestBed.createComponent(SideBarComponent);
+    fixture = TestBed.createComponent(ServicosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

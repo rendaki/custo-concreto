@@ -1,0 +1,36 @@
+<div class="container">
+  <p class="form-title">Cadastro de Obras</p>
+  <div class="mycont">
+    <div class="row center">
+      <div class="input-field col s8 m6 l4 offset-s2 offset-m3 offset-l4">
+        <a
+          class="btn waves-effect waves-light yellow black-text"
+          [routerLink]="['/form-obra']"
+        >
+          Novo
+      </a>
+      </div>
+    </div>
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th>Identificador</th>
+            <th>Categoria</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of this.table; let index = index">
+            <td>{{ this.table[index].identificador }}</td>
+            <td>{{ this.table[index].categoria }}</td>
+            <td>
+              <span class="my-icon"><button (click)="this.edit(this.table[index].id)" ><i class="material-icons">edit</i></button></span>
+              <span class="my-icon"><button (click)="this.delete(this.table[index].id)"><i class="material-icons">delete</i></button></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

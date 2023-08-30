@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,11 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isLogged: boolean = false;
-  appTitle: string = 'Custo Concreto';
 
- login($event: MouseEvent) {
-  this.isLogged = !this.isLogged;
-}
+  @Input() logged: boolean = false;
+  @Input() username: string = "";
+  @Output() logoutEvent = new EventEmitter<boolean>();
 
+  setlogout() {
+    this.logoutEvent.emit(true);
+  }
 }

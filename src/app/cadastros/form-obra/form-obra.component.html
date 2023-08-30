@@ -1,0 +1,141 @@
+<div class="container">
+  <p class="form-title">Cadastro de Obra</p>
+  <div class="mycont">
+    <div class="row">
+      <form (submit)="onSubmit()">
+        <div class="row">
+          <div class="input-field col s12 m12 l12">
+            <p></p>
+            <span>Identificador</span>
+            <input
+              name="input-identificador"
+              type="text"
+              class="validate grey lighten-4"
+              [(ngModel)]="this.obra.identificador"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m12 l12">
+            <span class="">Endereço</span>
+            <input
+              name="input-endereco"
+              type="text"
+              class="validate grey lighten-4"
+              [(ngModel)]="this.obra.endereco"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4 m4 l4">
+            Área em M²
+            <input
+              name="input-area"
+              type="text"
+              class="validate grey lighten-4"
+              [(ngModel)]="this.obra.area"
+            />
+          </div>
+          <div class="input-field col s4 m4 l4">
+            Categoria
+            <div class="select-dropdown grey lighten-4">
+              <select name="categoria" [(ngModel)]="this.obra.categoria">
+                <option value="selcione" selected>Selecione</option>
+                <option value="residencial">Residencial</option>
+                <option value="Comercial">Comercial</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-field col s4 m4 l4">
+            Método
+            <div class="select-dropdown grey lighten-4">
+              <select name="metodo" [(ngModel)]="this.obra.metodo">
+                <option value="selecione" selected>Selecione</option>
+                <option value="alvenaria">Alvenaria</option>
+                <option value="bloco">Bloco</option>
+                <option value="pre_moldada">Pré Moldada</option>
+                <option value="Madeira">Madeira</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m12 l12">Opções de Teto</div>
+          <div class="row center mycheck">
+            <ul>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="chk_teto_laje"
+                    [(ngModel)]="this.obra.tipo_teto_laje"
+                  />
+                  <span class="black-text">Laje</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="chk_teto_forro_pvc"
+                    [(ngModel)]="this.obra.tipo_teto_forro_pvc"
+                  />
+                  <span class="black-text">Forro PVC</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="chk_teto_forro_gesso"
+                    [(ngModel)]="this.obra.tipo_teto_forro_gesso"
+                  />
+                  <span class="black-text">Forro Gesso</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="chk_teto_forro_drywall"
+                    [(ngModel)]="this.obra.tipo_teto_forro_drywall"
+                  />
+                  <span class="black-text">Forro Drywall</span>
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="chk_teto_forro_madeira"
+                    [(ngModel)]="this.obra.tipo_teto_forro_madeira"
+                  />
+                  <span class="black-text">Forro Madeira</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row center">
+          <div class="input-field col s6 m6 l6">
+            <button
+              class="btn waves-effect waves-light yellow black-text"
+              type="submit"
+              name="action"
+            >
+              Salvar
+            </button>
+          </div>
+            <div class="input-field col s6 m6 l6">
+            <a
+              class="btn waves-effect waves-light yellow black-text"
+              [routerLink]="['/cadastro-obra']"
+            >
+              Cancelar
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
