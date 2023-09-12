@@ -2,17 +2,22 @@
   <p class="form-title">Cadastro de Obra</p>
   <div class="mycont">
     <div class="row">
-      <form (submit)="onSubmit()">
+      <form #form="ngForm" (submit)="onSubmit()">
         <div class="row">
           <div class="input-field col s12 m12 l12">
             <p></p>
             <span>Identificador</span>
             <input
+              id="input-identificador"
               name="input-identificador"
               type="text"
               class="validate grey lighten-4"
               [(ngModel)]="this.obra.identificador"
+              pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ú]*)+"
+              #identificador="ngModel"
+              required
             />
+            <div class="red-text" [hidden]="identificador.valid || identificador.untouched">Identificador Inválido</div>
           </div>
         </div>
         <div class="row">
@@ -23,7 +28,11 @@
               type="text"
               class="validate grey lighten-4"
               [(ngModel)]="this.obra.endereco"
+              pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ú]*)+"
+              #endereco="ngModel"
+              required
             />
+            <div class="red-text" [hidden]="endereco.valid || endereco.untouched">Endereço Inválido</div>
           </div>
         </div>
         <div class="row">
@@ -34,33 +43,47 @@
               type="text"
               class="validate grey lighten-4"
               [(ngModel)]="this.obra.area"
+              pattern="^(?!^(0{1,3}\.?)+(,00)?$)(\d{1,3}\.?)+(,\d\d?)?"
+              #area="ngModel"
+              required
             />
+            <div class="red-text" [hidden]="area.valid || area.untouched">Área Inválida</div>
           </div>
           <div class="input-field col s4 m4 l4">
             Categoria
-            <div class="select-dropdown grey lighten-4">
-              <select name="categoria" [(ngModel)]="this.obra.categoria">
-                <option value="selcione" selected>Selecione</option>
-                <option value="residencial">Residencial</option>
+            <div class="input-field">
+              <select required
+                name="categoria"
+                [(ngModel)]="this.obra.categoria"
+                class="browser-default grey lighten-4"
+
+              >
+
+                <option value="Selecione" disabled>Selecione</option>
+                <option value="Residencial">Residencial</option>
                 <option value="Comercial">Comercial</option>
               </select>
             </div>
           </div>
           <div class="input-field col s4 m4 l4">
             Método
-            <div class="select-dropdown grey lighten-4">
-              <select name="metodo" [(ngModel)]="this.obra.metodo">
-                <option value="selecione" selected>Selecione</option>
-                <option value="alvenaria">Alvenaria</option>
-                <option value="bloco">Bloco</option>
-                <option value="pre_moldada">Pré Moldada</option>
+
+              <select
+                name="metodo"
+                [(ngModel)]="this.obra.metodo"
+                class="browser-default grey lighten-4"
+              >
+                <option value="Selecione">Selecione</option>
+                <option value="Alvenaria">Alvenaria</option>
+                <option value="Bloco">Bloco</option>
+                <option value="Pré Moldado">Pré Moldado</option>
                 <option value="Madeira">Madeira</option>
               </select>
             </div>
-          </div>
         </div>
         <div class="row">
           <div class="col s12 m12 l12">Opções de Teto</div>
+          <br>
           <div class="row center mycheck">
             <ul>
               <li>
@@ -93,6 +116,7 @@
                   <span class="black-text">Forro Gesso</span>
                 </label>
               </li>
+              <br><br>
               <li>
                 <label>
                   <input
@@ -122,11 +146,12 @@
               class="btn waves-effect waves-light yellow black-text"
               type="submit"
               name="action"
+              [disabled]="!form.valid"
             >
               Salvar
             </button>
           </div>
-            <div class="input-field col s6 m6 l6">
+          <div class="input-field col s6 m6 l6">
             <a
               class="btn waves-effect waves-light yellow black-text"
               [routerLink]="['/cadastro-obra']"

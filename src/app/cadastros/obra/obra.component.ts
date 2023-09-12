@@ -13,14 +13,17 @@ export class ObraComponent {
     private router: Router
   ) { }
   delete(id: string) {
-    let tmp_table = Array<Obra>();
-    for (let i = 0; i < this.table.length; i++) {
-      if (id != this.table[i].id) {
-        tmp_table.push(this.table[i])
+    if (confirm("Deseja excluir?")) {
+
+      let tmp_table = Array<Obra>();
+      for (let i = 0; i < this.table.length; i++) {
+        if (id != this.table[i].id) {
+          tmp_table.push(this.table[i])
+        }
       }
+      this.table = tmp_table
+      localStorage.setItem('cadastro-obras', JSON.stringify(this.table));
     }
-    this.table = tmp_table
-    localStorage.setItem('cadastro-obras', JSON.stringify(this.table));
   }
   edit(itemid: string) {
     this.router.navigate(['form-obra', { id: itemid }]);
