@@ -1,0 +1,30 @@
+{
+  "obras": [
+    {
+      "identificador": "Casa do Jotape",
+      "endereco": "Rua Rosa Branca",
+      "area": "100",
+      "categoria": "Residencial",
+      "metodo": "Alvenaria",
+      "tipo_teto_laje": false,
+      "tipo_teto_forro_pvc": true,
+      "tipo_teto_forro_gesso": false,
+      "tipo_teto_forro_drywall": false,
+      "tipo_teto_forro_madeira": false,
+      "id": 1
+    },
+    {
+      "identificador": "Minha Casa",
+      "endereco": "Rua Leonor Castelano",
+      "area": "63",
+      "categoria": "Residencial",
+      "metodo": "Pré Moldado",
+      "tipo_teto_laje": false,
+      "tipo_teto_forro_pvc": false,
+      "tipo_teto_forro_gesso": false,
+      "tipo_teto_forro_drywall": true,
+      "tipo_teto_forro_madeira": false,
+      "id": 2
+    }
+  ]
+}

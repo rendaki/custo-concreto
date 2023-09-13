@@ -1,3 +1,4 @@
+import { ObraService } from 'src/app/services/obra.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Obra } from 'src/app/model/obra';
@@ -11,38 +12,34 @@ import { Obra } from 'src/app/model/obra';
 export class FormObraComponent {
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private obraService: ObraService
   ) { }
 
   obra!: Obra;
   isEdit: boolean = false;
-  table = Array<Obra>();
 
   ngOnInit() {
     M.AutoInit();
-    this.loadData();
     this.initObj();
   }
   onSubmit() {
     if (this.isEdit) {
-      for (let i = 0; i < this.table.length; i++) {
-        if (this.table[i].id == this.obra.id) {
-          this.table[i] = this.obra;
-          this.isEdit = false;
-          break;
-        }
-      }
+      this.obraService.update(this.obra).then((o) => {
+        alert('Obra: ' + o.identificador + ' atualizada!')
+      })
+      .catch((e) =>{
+        alert('Salvar edição falhou!')
+      })
     }
     else {
-      let id = Number(localStorage.getItem('cadastro-obras-sec'));
-      this.obra.id = String(id);
-      id = id + 1;
-      localStorage.setItem('cadastro-obras-sec', String(id));
-      this.table.push(this.obra)
+      this.obraService.save(this.obra).then((o) => {
+        alert('Obra: ' + o.identificador + ' cadastrada com sucesso!!')
+      })
+      .catch((e) =>{
+        alert('Salvar falhou!')
+      })
     }
-
-    localStorage.setItem('cadastro-obras', JSON.stringify(this.table));
-
     this.router.navigate(['/cadastro-obra']);
   }
 
@@ -61,22 +58,12 @@ export class FormObraComponent {
     this.obra.tipo_teto_forro_madeira = false;
     if (this.route.snapshot.paramMap.has('id')) {
       var editid = this.route.snapshot.paramMap.get('id');
-      for (let i = 0; i < this.table.length; i++) {
-        if (this.table[i].id == editid) {
-          this.obra = this.table[i];
-          this.isEdit = true;
-          break;
-        }
-      }
+      this.obraService.getById(Number(editid))
+        .then((o: Obra) => {
+          this.obra = o;
+        })
+      this.isEdit = true;
     }
   }
-  loadData() {
-    var obj = JSON.parse(String(localStorage.getItem('cadastro-obras')));
-    if (obj) {
-      for (let i = 0; i < obj.length; i++) {
-        this.obra = obj[i];
-        this.table.push(this.obra)
-      }
-    }
-  }
+
 }

@@ -10,4 +10,5 @@ export class Obra {
   tipo_teto_forro_gesso!:boolean;
   tipo_teto_forro_drywall!:boolean;
   tipo_teto_forro_madeira!:boolean;
+  user_id!: string;
 }

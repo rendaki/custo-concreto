@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,6 +13,7 @@ import { ServicosComponent } from './cadastros/servicos/servicos.component';
 import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { HomeComponent } from './home/home.component';
 import { FormObraComponent } from './cadastros/form-obra/form-obra.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { FormObraComponent } from './cadastros/form-obra/form-obra.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+        HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

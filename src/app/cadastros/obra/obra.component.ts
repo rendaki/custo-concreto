@@ -1,6 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Obra } from './../../model/obra';
 import { Component, OnInit } from '@angular/core';
+import { ObraService } from 'src/app/services/obra.service';
 
 @Component({
   selector: 'app-obra',
@@ -10,19 +11,16 @@ import { Component, OnInit } from '@angular/core';
 export class ObraComponent {
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private obraService: ObraService
   ) { }
   delete(id: string) {
     if (confirm("Deseja excluir?")) {
-
-      let tmp_table = Array<Obra>();
-      for (let i = 0; i < this.table.length; i++) {
-        if (id != this.table[i].id) {
-          tmp_table.push(this.table[i])
-        }
-      }
-      this.table = tmp_table
-      localStorage.setItem('cadastro-obras', JSON.stringify(this.table));
+      this.obraService.delete(Number(id)).then((resp : Boolean) =>{
+        this.loadData();
+      }).catch((e) =>{
+        alert('Delete falhou!')
+      })
     }
   }
   edit(itemid: string) {
@@ -35,13 +33,13 @@ export class ObraComponent {
     M.AutoInit();
   }
   loadData() {
-    var obj = JSON.parse(String(localStorage.getItem('cadastro-obras')));
-    if (obj) {
-      for (let i = 0; i < obj.length; i++) {
-        this.obra = obj[i];
+    this.table = Array<Obra>();
+    this.obraService.getAll().then((o: Obra[]) => {
+      o.forEach(element => {
+        this.obra = element
         this.table.push(this.obra)
-      }
-    }
+      });
+    })
   }
 
 }
