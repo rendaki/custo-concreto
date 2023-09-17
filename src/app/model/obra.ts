@@ -1,5 +1,6 @@
 export class Obra {
-  id!: string;
+  userId!: number;
+  id!: number;
   identificador!: string;
   endereco!: string;
   area!: number;
@@ -10,5 +11,5 @@ export class Obra {
   tipo_teto_forro_gesso!:boolean;
   tipo_teto_forro_drywall!:boolean;
   tipo_teto_forro_madeira!:boolean;
-  user_id!: string;
+
 }

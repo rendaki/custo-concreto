@@ -1,0 +1,84 @@
+<div class="container">
+  <p class="form-title">Cadastro de Fornecedor</p>
+  <div class="mycont">
+    <div class="row">
+      <form #form="ngForm" (submit)="onSubmit()">
+        <div class="row">
+          <div class="input-field col s12 m12 l12">
+            <p></p>
+            <span>Identificador</span>
+            <input
+              id="input-identificador"
+              name="input-identificador"
+              type="text"
+              class="validate grey lighten-4"
+              [(ngModel)]="this.fornecedor.identificador"
+              pattern="^[A-Z0-9][a-zA-Z0-9]*(?:\s+[A-Z0-9][a-zA-Z0-9]*)*$"
+              #identificador="ngModel"
+              required
+            />
+            <div class="red-text" [hidden]="identificador.valid || identificador.untouched">Identificador Inválido</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m12 l12">
+            <span class="">Endereço</span>
+            <input
+              name="input-endereco"
+              type="text"
+              class="validate grey lighten-4"
+              [(ngModel)]="this.fornecedor.endereco"
+              pattern="^[A-Z0-9][a-zA-Z0-9]*(?:\s+[A-Z0-9][a-zA-Z0-9]*)*$"
+              #endereco="ngModel"
+              required
+            />
+            <div class="red-text" [hidden]="endereco.valid || endereco.untouched">Endereço Inválido</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4 m4 l4">
+            Categoria
+            <div class="input-field">
+              <select
+                name="cat"
+                [(ngModel)]="this.fornecedor.categoria"
+                class="browser-default grey lighten-4"
+                pattern="^[^\s].*"
+                required
+                #cat="ngModel">
+
+                <option value=" " disabled>Selecione</option>
+                <option value="p">Produtos</option>
+                <option value="s">Serviços</option>
+              </select>
+              <div
+              class="red-text"
+              [hidden]="cat.valid || cat.untouched"
+            >Selecione a Categoria</div>
+            </div>
+          </div>
+        </div>
+        <div class="row center">
+          <div class="input-field col s6 m6 l6">
+            <button
+              class="btn waves-effect waves-light yellow black-text"
+              type="submit"
+              name="action"
+              [disabled]="!form.valid"
+            >
+              Salvar
+            </button>
+          </div>
+          <div class="input-field col s6 m6 l6">
+            <a
+              class="btn waves-effect waves-light yellow black-text"
+              [routerLink]="['/cadastro-fornecedor']"
+            >
+              Cancelar
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

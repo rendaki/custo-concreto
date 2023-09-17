@@ -1,0 +1,157 @@
+<div class="container">
+  <p class="form-title">Aquisições</p>
+  <div class="mycont">
+    <div class="row">
+      <form #form="ngForm" (submit)="onSubmit()">
+        <div class="row">
+          <div class="input-field col s12 m12 l12">
+            <p></p>
+            <span>Obra</span>
+            <div class="input-field">
+              <select
+                required
+                name="obra"
+                [(ngModel)]="this.aquisicao.obraId"
+                class="browser-default grey lighten-4"
+                #obra="ngModel"
+                pattern="^(?!^(0{1,3}\.?)+(,00)?$)(\d{1,3}\.?)+(,\d\d?)?"
+
+              >
+                <option value="" disabled>Selecione</option>
+                <option *ngFor="let obra of this.obras" [ngValue]="obra.id">{{obra.identificador}}</option>
+
+              </select>
+            </div>
+            <div class="red-text" [hidden]="obra.valid || obra.untouched">
+              Selecione Uma Obra
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12 m12 l12">
+            <span class="">Produto</span>
+            <input
+              name="produto"
+              type="text"
+              class="validate grey lighten-4"
+              [(ngModel)]="this.aquisicao.produto"
+              pattern="^[A-Z0-9][a-zA-Z0-9]*(?:\s+[A-Z0-9][a-zA-Z0-9]*)*$"
+              #produto="ngModel"
+              required
+            />
+            <div
+              class="red-text"
+              [hidden]="produto.valid || produto.untouched"
+            >
+              Descrição do produto inválida
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            Valor R$
+            <input
+              name="valor"
+              type="number"
+              class="validate grey lighten-4"
+              [(ngModel)]="this.aquisicao.valor"
+              pattern="^(?!(0))[0-9]+$"
+              #valor="ngModel"
+              required
+            />
+            <div class="red-text" [hidden]="valor.valid || valor.untouched">
+              Valor Inválido
+            </div>
+          </div>
+          <div class="input-field col s6 m6 l6">
+            Fornecedor
+            <div class="input-field">
+              <select
+                required
+                name="fornecedor"
+                [(ngModel)]="this.aquisicao.fornecedorId"
+                class="browser-default grey lighten-4"
+                pattern="^(?!(0))[0-9]+$"
+                #fornecedor="ngModel"
+                required
+              >
+                <option value=0 disabled>Selecione</option>
+                <option *ngFor="let fornecedor of this.fornecedores" [ngValue]="fornecedor.id">{{fornecedor.identificador}}</option>
+
+              </select>
+              <div class="red-text" [hidden]="fornecedor.valid || fornecedor.untouched">
+                Selecione um Fornecedor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            Categoria
+            <select
+              name="categoria"
+              [(ngModel)]="this.aquisicao.categoria"
+              class="browser-default grey lighten-4"
+              pattern="^[^\s].*"
+              #categoria="ngModel"
+              required
+            >
+              <option value=" " disabled>Selecione</option>
+              <option value="mb">Material Básico</option>
+              <option value="fa">Ferro/Aço</option>
+              <option value="e">Elétrica</option>
+              <option value="hg">Hidráulica/Gás</option>
+              <option value="pr">Pisos/Revestimentos</option>
+            </select>
+            <div class="red-text" [hidden]="categoria.valid || categoria.untouched">
+              Selecione uma Categoria
+            </div>
+          </div>
+          <div class="input-field col s6 m6 l6">
+            Fase da Obra
+
+            <select
+              name="fase"
+              [(ngModel)]="this.aquisicao.fase"
+              class="browser-default grey lighten-4"
+              pattern="^[^\s].*"
+              #fase="ngModel"
+              required
+            >
+              <option value=" " disabled>Selecione</option>
+              <option value="pt">Preparação Terreno</option>
+              <option value="f">Fundação</option>
+              <option value="pv">Pavimentos</option>
+              <option value="c">Cobertura</option>
+              <option value="a">Acabamento</option>
+            </select>
+            <div class="red-text" [hidden]="fase.valid || fase.untouched">
+              Selecione a Fase da Obra
+            </div>
+          </div>
+        </div>
+
+        <div class="row center">
+          <div class="input-field col s6 m6 l6">
+            <button
+              class="btn waves-effect waves-light yellow black-text"
+              type="submit"
+              name="action"
+              [disabled]="!form.valid"
+            >
+              Salvar
+            </button>
+          </div>
+          <div class="input-field col s6 m6 l6">
+            <a
+              class="btn waves-effect waves-light yellow black-text"
+              [routerLink]="['/cadastro-aquisicoes']"
+            >
+              Cancelar
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

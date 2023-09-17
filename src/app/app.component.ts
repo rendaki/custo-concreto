@@ -23,14 +23,22 @@ export class AppComponent implements OnInit {
     this.username = event;
   }
   logout() {
-    this.username = '';
-    this.logged = false;
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('user_name');
+    window.location.reload();
   }
   ngOnInit(): void {
     M.AutoInit();
-    localStorage.removeItem('newobra');
-    localStorage.removeItem('cadastro-obras');
-    localStorage.setItem('cadastro-obras-sec','1');
+    if(localStorage.getItem('user_id'))
+    {
+      this.logged = true;
+      this.username = String(localStorage.getItem('user_name'))
+    }
+    else
+    {
+      this.router.navigate(['/']);
+    }
+
   }
 
 

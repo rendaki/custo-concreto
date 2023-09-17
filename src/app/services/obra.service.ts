@@ -1,3 +1,4 @@
+import { ObraAquisoesServicos } from './../model/obra.aquisoes.servicos';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs/internal/firstValueFrom';
@@ -15,9 +16,14 @@ export class ObraService {
 
   constructor(private httpClient: HttpClient) {}
 
-  async getAll(): Promise<Obra[]> {
+  async getAllFull(userId: number, id: number): Promise<ObraAquisoesServicos[]> {
     return await firstValueFrom(this.httpClient
-      .get<Obra[]>(this.URL))
+      .get<ObraAquisoesServicos[]>(`${this.URL}/user/${userId}/id/${id}/full`))
+  }
+
+  async getAll(userId: number): Promise<Obra[]> {
+    return await firstValueFrom(this.httpClient
+      .get<Obra[]>(`${this.URL}/user/${userId}`))
   }
   async getById(id: number): Promise<Obra> {
     return await firstValueFrom(this.httpClient

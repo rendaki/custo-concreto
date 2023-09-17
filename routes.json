@@ -1,0 +1,12 @@
+{
+  "/obras/user/:userId": "/obras?userId=:userId",
+  "/obras/user/:userId/id/:id/full": "/obras?userId=:userId&id=:id&_embed=aquisicoes&_embed=servicos",
+
+  "/fornecedors/user/:userId": "/fornecedors?userId=:userId",
+  "/fornecedors/user/:userId/categoria/:categoria": "/fornecedors?userId=:userId&categoria=:categoria",
+  "/aquisicoes/user/:userId/obra": "/aquisicoes?userId=:userId&_expand=obra",
+  "/aquisicoes/user/:userId": "/aquisicoes?userId=:userId",
+  "/servicos/user/:userId/obra": "/servicos?userId=:userId&_expand=obra",
+  "/servicos/user/:userId": "/servicos?userId=:userId"
+
+}

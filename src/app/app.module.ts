@@ -14,6 +14,14 @@ import { RelatoriosComponent } from './relatorios/relatorios.component';
 import { HomeComponent } from './home/home.component';
 import { FormObraComponent } from './cadastros/form-obra/form-obra.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormFornecedorComponent } from './cadastros/form-fornecedor/form-fornecedor.component';
+import { FormAquisicoesComponent } from './cadastros/form-aquisicoes/form-aquisicoes.component';
+import { FormServicosComponent } from './cadastros/form-servicos/form-servicos.component';
+import { TotalResumidoComponent } from './reports/total-resumido/total-resumido.component';
+import { TotalFornecedorComponent } from './reports/total-fornecedor/total-fornecedor.component';
+import { TotalFaseComponent } from './reports/total-fase/total-fase.component';
+import { TotalCategoriaComponent } from './reports/total-categoria/total-categoria.component';
+import { PieChartComponent } from './charts/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +35,21 @@ import { HttpClientModule } from '@angular/common/http';
     ServicosComponent,
     RelatoriosComponent,
     HomeComponent,
-    FormObraComponent
+    FormObraComponent,
+    FormFornecedorComponent,
+    FormAquisicoesComponent,
+    FormServicosComponent,
+    TotalResumidoComponent,
+    TotalFornecedorComponent,
+    TotalFaseComponent,
+    TotalCategoriaComponent,
+    PieChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-        HttpClientModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
