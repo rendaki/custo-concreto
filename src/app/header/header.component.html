@@ -16,8 +16,8 @@
   </div>
 
   <div [hidden]="!logged">
-    <div class="row my-logout">
-      <div class="col s12 m12 l12 offset-s6 offset-m6 offset-l5">
+    <div class="row">
+      <div class="col s6 m6 l6 offset-s3 offset-m4 offset-l5">
         <span>User: </span><span>{{ this.username }}</span>
         <span
           ><button (click)="this.setlogout()" title="Logout">

@@ -1,0 +1,32 @@
+<h5>Relatório Custos Resumido Aquisições/Serviços</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descrição</th><th>Valores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Total de Aquisições</td><td>{{this.totalResumido.totalAquisicoes | currency:'BRL' }}</td>
+    </tr>
+    <tr>
+      <td>Total de Serviços</td><td>{{this.totalResumido.totalServicos | currency:'BRL' }}
+      </td>
+    </tr>
+    <tr>
+      <td>Total Geral</td><td>{{this.totalResumido.totalGeral | currency:'BRL' }}
+      </td>
+    </tr>
+    <tr>
+      <td>Média por M²</td><td>{{this.totalResumido.mediaMetroQuadrado | currency:'BRL' }} / M²
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<app-pie-chart  [data]="this.dadosGrafico"
+                [labels]="this.legendaGrafico"
+                [title]="this.tituloGrafico"
+/>
+

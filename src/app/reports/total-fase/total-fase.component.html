@@ -1,0 +1,20 @@
+<h5>Relatório Custo por Fase</h5>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Valores</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of this.totalFases">
+      <td>{{ item.fase }}</td>
+      <td>{{ item.valorTotal | currency:'BRL' }}</td>
+    </tr>
+  </tbody>
+</table>
+<app-pie-chart  [data]="this.dadosGrafico"
+                [labels]="this.legendaGrafico"
+                [title]="this.tituloGrafico"
+/>

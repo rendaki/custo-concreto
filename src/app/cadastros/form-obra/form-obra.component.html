@@ -13,11 +13,16 @@
               type="text"
               class="validate grey lighten-4"
               [(ngModel)]="this.obra.identificador"
-              pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ú]*)+"
+              pattern="^[A-Z0-9][a-zA-Z0-9]*(?:\s+[A-Z0-9][a-zA-Z0-9]*)*$"
               #identificador="ngModel"
               required
             />
-            <div class="red-text" [hidden]="identificador.valid || identificador.untouched">Identificador Inválido</div>
+            <div
+              class="red-text"
+              [hidden]="identificador.valid || identificador.untouched"
+            >
+              Identificador Inválido
+            </div>
           </div>
         </div>
         <div class="row">
@@ -28,11 +33,16 @@
               type="text"
               class="validate grey lighten-4"
               [(ngModel)]="this.obra.endereco"
-              pattern="^(\s?[A-ZÀ-Ú][a-zà-ú]*)+(\s[a-zà-ú]*)?(\s[A-ZÀ-Ú][a-zà-ú]*)+"
+              pattern="^[A-Z0-9][a-zA-Z0-9]*(?:\s+[A-Z0-9][a-zA-Z0-9]*)*$"
               #endereco="ngModel"
               required
             />
-            <div class="red-text" [hidden]="endereco.valid || endereco.untouched">Endereço Inválido</div>
+            <div
+              class="red-text"
+              [hidden]="endereco.valid || endereco.untouched"
+            >
+              Endereço Inválido
+            </div>
           </div>
         </div>
         <div class="row">
@@ -47,43 +57,58 @@
               #area="ngModel"
               required
             />
-            <div class="red-text" [hidden]="area.valid || area.untouched">Área Inválida</div>
+            <div class="red-text" [hidden]="area.valid || area.untouched">
+              Área Inválida
+            </div>
           </div>
           <div class="input-field col s4 m4 l4">
             Categoria
-            <div class="input-field">
-              <select required
+            <div class="input-field validate">
+              <select
                 name="categoria"
                 [(ngModel)]="this.obra.categoria"
-                class="browser-default grey lighten-4"
-
+                class="browser-default  grey lighten-4"
+                #categoria="ngModel"
+                pattern="^[^\s].*"
+                required
               >
-
-                <option value="Selecione" disabled>Selecione</option>
-                <option value="Residencial">Residencial</option>
-                <option value="Comercial">Comercial</option>
+                <option value=" " disabled>Selecione</option>
+                <option value="r">Residencial</option>
+                <option value="c">Comercial</option>
               </select>
+              <div
+                class="red-text"
+                [hidden]="categoria.valid || categoria.untouched"
+              >
+                Selecione a Categoria
+              </div>
             </div>
           </div>
           <div class="input-field col s4 m4 l4">
             Método
 
-              <select
-                name="metodo"
-                [(ngModel)]="this.obra.metodo"
-                class="browser-default grey lighten-4"
-              >
-                <option value="Selecione">Selecione</option>
-                <option value="Alvenaria">Alvenaria</option>
-                <option value="Bloco">Bloco</option>
-                <option value="Pré Moldado">Pré Moldado</option>
-                <option value="Madeira">Madeira</option>
-              </select>
+            <select
+              name="metodo"
+              [(ngModel)]="this.obra.metodo"
+              class="browser-default grey lighten-4"
+              #metodo="ngModel"
+              pattern="^[^\s].*"
+              required
+            >
+              <option value=" " disabled>Selecione</option>
+              <option value="a">Alvenaria</option>
+              <option value="b">Bloco</option>
+              <option value="p">Pré Moldado</option>
+              <option value="m">Madeira</option>
+            </select>
+            <div class="red-text" [hidden]="metodo.valid || metodo.untouched">
+              Selecione o Método
             </div>
+          </div>
         </div>
         <div class="row">
           <div class="col s12 m12 l12">Opções de Teto</div>
-          <br>
+          <br />
           <div class="row center mycheck">
             <ul>
               <li>
@@ -116,7 +141,7 @@
                   <span class="black-text">Forro Gesso</span>
                 </label>
               </li>
-              <br><br>
+              <br /><br />
               <li>
                 <label>
                   <input

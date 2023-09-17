@@ -1,3 +1,4 @@
+import { ToastService } from './../../services/toast.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Obra } from './../../model/obra';
 import { Component, OnInit } from '@angular/core';
@@ -12,34 +13,58 @@ export class ObraComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private obraService: ObraService
+    private obraService: ObraService,
+    private toastService: ToastService
   ) { }
-  delete(id: string) {
+  delete(id: number) {
     if (confirm("Deseja excluir?")) {
-      this.obraService.delete(Number(id)).then((resp : Boolean) =>{
+      this.obraService.delete(id).then((resp: Boolean) => {
         this.loadData();
-      }).catch((e) =>{
-        alert('Delete falhou!')
+        this.toastService.show("Obra deletada!",1);
+      }).catch((e) => {
+        this.toastService.show("Erro ao deletar Obra!",2);
       })
+
     }
   }
-  edit(itemid: string) {
+  edit(itemid: number) {
     this.router.navigate(['form-obra', { id: itemid }]);
   }
   table = Array<Obra>();
-  obra: Obra = new Obra();
+  userId!: number;
+
+
   ngOnInit(): void {
     this.loadData();
     M.AutoInit();
   }
   loadData() {
     this.table = Array<Obra>();
-    this.obraService.getAll().then((o: Obra[]) => {
+    this.userId = Number(localStorage.getItem('user_id'));
+    this.obraService.getAll(this.userId).then((o: Obra[]) => {
       o.forEach(element => {
-        this.obra = element
-        this.table.push(this.obra)
+        this.table.push(element)
       });
     })
+  }
+  getCategoria(c: string)
+  {
+    var resp = "";
+    switch(c)
+    {
+      case "r":
+      {
+        resp = "Residencial";
+        break;
+      }
+      case "c":
+      {
+        resp = "Comercial";
+        break;
+      }
+      default: resp ="";
+    }
+    return resp;
   }
 
 }

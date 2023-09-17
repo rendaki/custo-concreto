@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="container">
-      <table>
+      <table *ngIf="this.table.length>0;else elseBlock">
         <thead>
           <tr>
             <th>Identificador</th>
@@ -22,8 +22,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of this.table; let index = index">
-            <td>{{ this.table[index].identificador }}</td>
-            <td>{{ this.table[index].categoria }}</td>
+            <td>{{ item.identificador }}</td>
+            <td>{{ getCategoria(item.categoria) }}</td>
             <td>
               <span class="my-icon"><button (click)="this.edit(this.table[index].id)" ><i class="material-icons">edit</i></button></span>
               <span class="my-icon"><button (click)="this.delete(this.table[index].id)"><i class="material-icons">delete</i></button></span>
@@ -31,6 +31,8 @@
           </tr>
         </tbody>
       </table>
+      <ng-template #elseBlock><div class="row center">Não existem Obras Cadastradas!</div></ng-template>
+
     </div>
   </div>
 </div>
