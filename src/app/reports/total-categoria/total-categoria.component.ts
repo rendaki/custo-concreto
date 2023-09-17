@@ -23,7 +23,7 @@ export class TotalCategoriaComponent {
   }
   gerarDadosGrafico() {
     this.totalCategorias.forEach(categoria => {
-      this.tituloGrafico = "Total por Fase"
+      this.tituloGrafico = "Total por Categoria"
       this.legendaGrafico.push(categoria.categoria)
       this.dadosGrafico.push(categoria.valorTotal)
     });

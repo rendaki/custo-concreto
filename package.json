@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href=/custo-concreto/",
+    "build": "ng build --base-href=/custo-concreto/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "ghpages": "angular-cli-ghpages --dir=dist/custo-concreto",
