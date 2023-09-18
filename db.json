@@ -1,38 +1,23 @@
 {
-  "obras": [
-    {
-      "identificador": "Casa Terrea 2 Quartos",
-      "endereco": "Rua Leonor Castelano 543",
-      "area": "65",
-      "categoria": "r",
-      "metodo": "p",
-      "tipo_teto_laje": false,
-      "tipo_teto_forro_pvc": false,
-      "tipo_teto_forro_gesso": false,
-      "tipo_teto_forro_drywall": true,
-      "tipo_teto_forro_madeira": false,
-      "userId": 1,
-      "id": 1
-    }
-  ],
+  "obras": [],
   "fornecedors": [
     {
-      "identificador": "Nichele Materiais",
-      "endereco": "Rua Mateus Leme",
+      "identificador": "Loja Do Miguel Materiais",
+      "endereco": "Rua Santa Luzia",
       "categoria": "p",
       "userId": 1,
       "id": 1
     },
     {
-      "identificador": "Pedreiro Andre",
-      "endereco": "Rua Clementino Basso 315",
+      "identificador": "Engenheiro Pedro",
+      "endereco": "Rua Maria Lucia",
       "categoria": "s",
       "userId": 1,
       "id": 2
     },
     {
-      "identificador": "Engenheiro Jose",
-      "endereco": "Rua Bela Vista",
+      "identificador": "Pedreiro Andre",
+      "endereco": "Rua XV De Novembro",
       "categoria": "s",
       "userId": 1,
       "id": 3
@@ -50,48 +35,6 @@
       "password": "senha"
     }
   ],
-  "aquisicoes": [
-    {
-      "produto": "Ferro Ca50",
-      "valor": 900,
-      "categoria": "fa",
-      "fornecedorId": 1,
-      "fase": "f",
-      "userId": 1,
-      "obraId": 1,
-      "id": 1
-    },
-    {
-      "produto": "Tijolos 6 Furos",
-      "valor": 560,
-      "categoria": "mb",
-      "fornecedorId": 1,
-      "fase": "f",
-      "userId": 1,
-      "obraId": 1,
-      "id": 2
-    }
-  ],
-  "servicos": [
-    {
-      "servico": "Projeto Estrutural",
-      "valor": 3000,
-      "categoria": "p",
-      "fornecedorId": 3,
-      "fase": "pro",
-      "userId": 1,
-      "obraId": 1,
-      "id": 1
-    },
-    {
-      "servico": "Alvenaria",
-      "valor": 2500,
-      "categoria": "ex",
-      "fornecedorId": 2,
-      "fase": "f",
-      "userId": 1,
-      "obraId": 1,
-      "id": 2
-    }
-  ]
+  "aquisicoes": [],
+  "servicos": []
 }
