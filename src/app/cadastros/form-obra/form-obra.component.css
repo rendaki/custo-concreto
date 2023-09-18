@@ -1,0 +1,70 @@
+/* label color */
+.input-field label {
+  color: #000;
+}
+/* label focus color */
+.input-field input[type="text"]:focus + label {
+  color: #000;
+}
+/* label underline focus color */
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid yellow;
+  box-shadow: 0 1px 0 0 yellow;
+}
+/* valid color */
+.input-field input[type="text"].valid {
+  border-bottom: 1px solid #72f506;
+  box-shadow: 0 1px 0 0 #72f506;
+}
+/* invalid color */
+.input-field input[type="text"].invalid {
+  border-bottom: 1px solid #fa0606;
+  box-shadow: 0 1px 0 0 #fa0606;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: #000;
+}
+
+.mycont {
+  margin: 0px;
+  border: solid #000000;
+  overflow: auto;
+}
+.form-title {
+  font-size: 18px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-top: 10px;
+  margin-bottom: 1px;
+  padding: 0px;
+}
+.mycheck ul li {
+  display: inline;
+  padding-left: 10px;
+}
+.input-field {
+  margin: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.input-field input {
+  padding-left: 5px;
+  margin: 0;
+}
+
+.input-field select:focus {
+  border-bottom: 1px solid yellow;
+  box-shadow: 0 1px 0 0 yellow;
+}
+
+.input-field:focus {
+  border-bottom: 1px solid yellow;
+  box-shadow: 0 1px 0 0 yellow;
+}
+
+select:focus {
+  border: none;
+  outline: none;
+}
+

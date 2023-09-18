@@ -1,0 +1,46 @@
+nav {
+  height: 50px;
+  line-height: 35px;
+  border: solid #000000;
+
+}
+
+.nav-wrapper ul {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-wrapper a{
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.sidenav-trigger{
+  height: 35px;
+
+}
+.sidenav-trigger i {
+  line-height: 35px;
+}
+
+.my-title-line {
+  font-size: 30px;
+  padding-top: 10px;
+  display: flex;
+  justify-content:space-between;
+}
+
+.my-logo-cost {
+  height: 54px;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.my-logo-concrete {
+  height: 54px;
+  padding-right: 10px;
+}
+.col span{
+  margin-left: 5px;
+  font: bold;
+}

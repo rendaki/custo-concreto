@@ -1,0 +1,87 @@
+<div class="yellow">
+  <div class="my-title-line">
+    <div>
+      <img
+        class="my-logo-cost hide-on-small-and-down"
+        src="assets/resources/images/cost.png"
+      />
+    </div>
+    <div class="hide-on-small-and-down"><ng-content></ng-content></div>
+    <div>
+      <img
+        class="my-logo-concrete"
+        src="assets/resources/images/concrete.png"
+      />
+    </div>
+  </div>
+
+  <div [hidden]="!logged">
+    <div class="row">
+      <div class="col s6 m6 l6 offset-s3 offset-m4 offset-l5">
+        <span>User: </span><span>{{ this.username }}</span>
+        <span
+          ><button (click)="this.setlogout()" title="Logout">
+            Logout
+          </button></span
+        >
+      </div>
+    </div>
+    <nav>
+      <div class="nav-wrapper grey darken-1">
+        <a
+          href="#"
+          data-target="mobile-demo"
+          class="sidenav-trigger yellow black-text"
+          ><i class="material-icons">menu</i></a
+        >
+        <ul class="hide-on-med-and-down">
+          <li>
+            <a class="yellow black-text" [routerLink]="['cadastro-obra']"
+              >Cadastrar Obra</a
+            >
+          </li>
+          <li>
+            <a class="yellow black-text" [routerLink]="['cadastro-fornecedor']"
+              >Cadastrar Fornecedor</a
+            >
+          </li>
+          <li>
+            <a class="yellow black-text" [routerLink]="['cadastro-aquisicoes']"
+              >Aquisições</a
+            >
+          </li>
+          <li>
+            <a class="yellow black-text" [routerLink]="['cadastro-servicos']"
+              >Serviços</a
+            >
+          </li>
+          <li>
+            <a class="yellow black-text" [routerLink]="['relatorios']"
+              >Relatórios</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <ul class="sidenav sidenav-close grey darken-1" id="mobile-demo">
+      <li class="yellow black-text z-depth-5 center-align">
+        <img class="my-logo-cost" src="assets/resources/images/cost.png" />
+      </li>
+      <li class="yellow black-text z-depth-5">
+        <a [routerLink]="['cadastro-obra']">Cadastrar Obra</a>
+      </li>
+      <li class="yellow black-text z-depth-5">
+        <a [routerLink]="['cadastro-fornecedor']">Cadastrar Fornecedor</a>
+      </li>
+      <li class="yellow black-text z-depth-5">
+        <a [routerLink]="['cadastro-aquisicoes']">Aquisições</a>
+      </li>
+      <li class="yellow black-text z-depth-5">
+        <a [routerLink]="['cadastro-servicos']">Serviços</a>
+      </li>
+      <li class="yellow black-text z-depth-5">
+        <a [routerLink]="['relatorios']">Relatórios</a>
+      </li>
+    </ul>
+  </div>
+</div>

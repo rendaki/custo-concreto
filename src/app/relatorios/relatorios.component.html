@@ -1,0 +1,99 @@
+<div class="container">
+  <p class="form-title">Relatórios</p>
+  <div class="mycont">
+    <div class="row">
+      <form>
+        <div class="row" *ngIf="this.relatorio == ' '">
+          <div class="input-field col s12 m12 l12">
+            <p></p>
+            <span>Obra</span>
+            <div class="input-field">
+              <select
+                required
+                name="obra"
+                [(ngModel)]="this.obraId"
+                class="browser-default grey lighten-4"
+                #obra="ngModel"
+                pattern="^(?!^(0{1,3}\.?)+(,00)?$)(\d{1,3}\.?)+(,\d\d?)?"
+                (change)="getDataFromObra(obra.value)"
+              >
+                <option value="0" disabled>Selecione</option>
+                <option *ngFor="let obra of this.obras" [ngValue]="obra.id">
+                  {{ obra.identificador }}
+                </option>
+              </select>
+            </div>
+            <div class="red-text" [hidden]="obra.valid || obra.untouched">
+              Selecione Uma Obra
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="this.obraId != 0 && this.relatorio == ' '">
+          <div class="input-field col s12 m12 l12">
+            <p></p>
+            <span>Relatório</span>
+            <div class="input-field">
+              <select
+                name="rel"
+                [(ngModel)]="this.relatorio"
+                class="browser-default grey lighten-4"
+                pattern="^[^\s].*"
+                #rel="ngModel"
+                required
+              >
+                <option value=" " disabled>Selecione</option>
+                <option value="tr">Totais Resumido</option>
+                <option value="pfor">Por Fornecedor</option>
+                <option value="pf">Por Fase</option>
+                <option value="pcps">Por Categoria de Produtos/Serviços</option>
+              </select>
+            </div>
+            <div class="red-text" [hidden]="rel.valid || rel.untouched">
+              Selecione Um Relatório
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row center" *ngIf="this.obraId != 0 && this.relatorio != ' '">
+        <div class="input-field col s12 m12 l12">
+          <p></p>
+          <h6>Obra: {{ obraAqServ.identificador }}</h6>
+          <h6>Endereço: {{ obraAqServ.endereco }}</h6>
+          <h6>Área: {{ obraAqServ.area }}</h6>
+        </div>
+
+        <div class="row center">
+          <div class="col s12 m12 l12">
+            <app-total-resumido
+              *ngIf="this.relatorio == 'tr'"
+              [obraAqServ]="this.obraAqServ"
+            ></app-total-resumido>
+            <app-total-fornecedor
+              *ngIf="this.relatorio == 'pfor'"
+              [obraAqServ]="this.obraAqServ"
+            ></app-total-fornecedor>
+            <app-total-fase
+              *ngIf="this.relatorio == 'pf'"
+              [obraAqServ]="this.obraAqServ"
+            ></app-total-fase>
+            <app-total-categoria
+              *ngIf="this.relatorio == 'pcps'"
+              [obraAqServ]="this.obraAqServ"
+            ></app-total-categoria>
+          </div>
+        </div>
+        <br />
+        <div class="row center" *ngIf="this.relatorio != ' '">
+          <div class="input-field col s8 m6 l4 offset-s2 offset-m3 offset-l4">
+            <a
+              class="btn waves-effect waves-light yellow black-text"
+              (click)="this.voltar()"
+            >
+              Voltar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

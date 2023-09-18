@@ -1,0 +1,40 @@
+{
+  "obras": [],
+  "fornecedors": [
+    {
+      "identificador": "Loja Do Miguel Materiais",
+      "endereco": "Rua Santa Luzia",
+      "categoria": "p",
+      "userId": 1,
+      "id": 1
+    },
+    {
+      "identificador": "Engenheiro Pedro",
+      "endereco": "Rua Maria Lucia",
+      "categoria": "s",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "identificador": "Pedreiro Andre",
+      "endereco": "Rua XV De Novembro",
+      "categoria": "s",
+      "userId": 1,
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin"
+    },
+    {
+      "user_id": 2,
+      "username": "eumesmo",
+      "password": "senha"
+    }
+  ],
+  "aquisicoes": [],
+  "servicos": []
+}

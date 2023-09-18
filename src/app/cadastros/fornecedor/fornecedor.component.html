@@ -1,0 +1,37 @@
+<div class="container">
+  <p class="form-title">Cadastro de Fornecedores</p>
+  <div class="mycont">
+    <div class="row center">
+      <div class="input-field col s8 m6 l4 offset-s2 offset-m3 offset-l4">
+        <a
+          class="btn waves-effect waves-light yellow black-text"
+          [routerLink]="['/form-fornecedor']"
+        >
+          Novo
+      </a>
+      </div>
+    </div>
+    <div class="container">
+      <table *ngIf="this.table.length>0;else elseBlock">
+        <thead>
+          <tr>
+            <th>Identificador</th>
+            <th>Categoria</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of this.table; let index = index">
+            <td>{{ item.identificador }}</td>
+            <td>{{ getCategoria(item.categoria) }}</td>
+            <td>
+              <span class="my-icon"><button (click)="this.edit(this.table[index].id)" ><i class="material-icons">edit</i></button></span>
+              <span class="my-icon"><button (click)="this.delete(this.table[index].id)"><i class="material-icons">delete</i></button></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ng-template #elseBlock><div class="row center">Não existem Fornecedores Cadastrados!</div></ng-template>
+    </div>
+  </div>
+</div>

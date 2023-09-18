@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row" [hidden]="!invaliduser">
+    <div class="input-field">
+      <div class="card red"><p>Usuário ou senha invalido</p></div>
+    </div>
+  </div>
+  <form (submit)="onSubmit()">
+    <div class="row">
+      <div class="col s2 m3 l4"></div>
+      <div class="input-field col s8 m6 l4">
+        <input
+          name="input-username"
+          type="text"
+          class="validate"
+          placeholder="Usuário"
+          [(ngModel)]="this.user.username"
+        />
+      </div>
+      <div class="col s2 m3 l4"></div>
+    </div>
+    <div class="row">
+      <div class="col s2 m3 l4"></div>
+      <div class="input-field col s8 m6 l4">
+        <input
+          name="password"
+          type="password"
+          class="validate"
+          placeholder="Senha"
+          [(ngModel)]="this.user.password"
+        />
+      </div>
+      <div class="col s2 m3 l4"></div>
+    </div>
+    <div class="row center">
+      <div class="col s2 m3 l4"></div>
+      <div class="input-field col s8 m6 l4">
+        <button
+          class="btn waves-effect waves-light yellow black-text"
+          type="submit"
+          name="action"
+        >
+          Login
+        </button>
+      </div>
+      <div class="col s2 m3 l4"></div>
+    </div>
+  </form>
+</div>
